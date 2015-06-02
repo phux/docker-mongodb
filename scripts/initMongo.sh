@@ -23,7 +23,7 @@ fi
 mongo admin --eval "db.shutdownServer();"
 echo "=> Done!"
 
-touch /opt/mongo_init.sema
+gosu touch /opt/mongo_init.sema
 
 fi
 
