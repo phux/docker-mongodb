@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ ! -f '/opt/mongo_init.sema' ]; then
+if [ ! -f '/data/mongo_init.sema' ]; then
     gosu mongodb mongod --smallfiles --nojournal &
     RET=1
     while [[ RET -ne 0 ]]; do
@@ -22,5 +22,5 @@ if [ ! -f '/opt/mongo_init.sema' ]; then
     mongo admin --eval "db.shutdownServer();"
     echo "=> Done!"
 
-    gosu root touch /opt/mongo_init.sema
+    gosu root touch /data/mongo_init.sema
 fi
